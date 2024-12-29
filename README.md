@@ -5,6 +5,8 @@
 2. [Conditionals and Loops](#conditionals-and-loops)  
 3. [Arrays](#arrays)  
 4. [Hashes](#hashes)  
+5. [Methods](#methods)  
+
 
 ---
 
@@ -79,3 +81,29 @@
   - `each`, `each_key`, `each_value`, `each_pair`  
 - **Hash Methods:**  
   - `merge`, `clear`, `has_key?`, `has_value?`, `empty?`, `size`  
+
+---
+
+
+<h2 id="methods">5. Methods 🛠️</h2>  
+
+**File:** [methods.rb](methods.rb)  
+
+- **Defining Methods:**  
+  - `def`, `end`  
+- **Calling Methods:**  
+  - `method_name`, `method_name(arguments)`  
+- **Methods with Arguments:**  
+  - `def method_name(arg1, arg2)`, `end`  
+- **Default Arguments:**  
+  - `def method_name(arg1="default")`, `end`  
+- **Explicit Return:**  
+  - `return value`  
+- **Predicate Methods:**  
+  - Methods that return a boolean value, end with `?`  
+  - Examples: `empty?`, `include?`, `odd?`, `even?`  
+- **Bang Methods:**  
+  - Methods that modify the object in place, end with `!`  
+  - Examples: `reverse!`, `upcase!`, `downcase!`  
+
+---

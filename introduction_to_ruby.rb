@@ -102,6 +102,7 @@ puts $age
 # print does not add a newline character at the end
 # p is used to print the object as it is
 # putc is used to print a single character
+# puts and print return nil while p returns the value of the object
 
 puts "Hello"
 print "Hello"
