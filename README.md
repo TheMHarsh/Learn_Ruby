@@ -6,7 +6,7 @@
 3. [Arrays](#arrays)  
 4. [Hashes](#hashes)  
 5. [Methods](#methods)  
-
+6. [Debugging](#debugging)
 
 ---
 
@@ -90,13 +90,15 @@
 **File:** [methods.rb](methods.rb)  
 
 - **Defining Methods:**  
-  - `def`, `end`  
+  - `def` keyword
 - **Calling Methods:**  
   - `method_name`, `method_name(arguments)`  
 - **Methods with Arguments:**  
-  - `def method_name(arg1, arg2)`, `end`  
+  - `def method_name(arg1, arg2)`
 - **Default Arguments:**  
-  - `def method_name(arg1="default")`, `end`  
+  - `def method_name(arg1="default")`
+- **Implicit Return:**  
+  - The last line of the method is returned  
 - **Explicit Return:**  
   - `return value`  
 - **Predicate Methods:**  
@@ -107,3 +109,17 @@
   - Examples: `reverse!`, `upcase!`, `downcase!`  
 
 ---
+
+<h2 id="debugging">6. Debugging 🐞</h2>  
+
+**File:** [debugging.rb](debugging.rb)  
+
+- **Pry-byebug:**  
+  - `require 'pry-byebug'`  
+  - Add `binding.pry` where you want to pause the code  
+  - Run the file to see a prompt where you can inspect the code  
+  - Type `exit` to continue the code execution  
+  - Type `exit!` to exit the debugger
+
+---
+
