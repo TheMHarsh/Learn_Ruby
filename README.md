@@ -7,6 +7,7 @@
 4. [Hashes](#hashes)  
 5. [Methods](#methods)  
 6. [Debugging](#debugging)
+7. [Enumerables](#enumerables)  
 
 ---
 
@@ -123,3 +124,15 @@
 
 ---
 
+<h2 id="enumerables">7. Enumerables 📜</h2>  
+
+**File:** [enumerable_methods.rb](enumerable_methods.rb)  
+
+- **Basic Enumerable Methods:**  
+  - `each`, `each_with_index`, `select`, `reject`, `map`, `reduce`, `find`, `group_by`, `grep`, `sort`, `max`, `min`, `reverse_each`, `count`, `with_index`  
+- **Shorthand for Enumerable Methods:**  
+  - `map(&:method_name)`  
+- **Predicate Enumerable Methods:**  
+  - `include?`, `any?`, `all?`, `none?`, `one?`  
+
+---
