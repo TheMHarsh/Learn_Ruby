@@ -8,6 +8,7 @@
 5. [Methods](#methods)  
 6. [Debugging](#debugging)
 7. [Enumerables](#enumerables)  
+8. [Nested Collections](#nested-collections)  
 
 ---
 
@@ -134,5 +135,23 @@
   - `map(&:method_name)`  
 - **Predicate Enumerable Methods:**  
   - `include?`, `any?`, `all?`, `none?`, `one?`  
+
+---
+
+<h2 id="nested-collections">8. Nested Collections 🗂️</h2>  
+
+**File:** [nested_collections.rb](nested_collections.rb)  
+
+- **Nested Arrays:**  
+  - Accessing elements: `arr[1][1]`, `arr.dig(4,0)`  
+  - Creating nested arrays: `Array.new(3, Array.new(3, 0))`, `Array.new(3) { Array.new(3, 0) }`  
+  - Adding and removing elements: `<<`, `push`, `unshift`, `pop`, `shift`  
+  - Iterating over nested arrays: `each`, `flatten.each`  
+  - Using `any?` and `all?` with nested arrays  
+- **Nested Hashes:**  
+  - Accessing elements: `hash[:key][:subkey]`, `hash.dig(:key, :subkey)`  
+  - Adding and removing elements: `hash[:key] = value`, `hash.delete(:key)`  
+  - Iterating over nested hashes: custom method `print_hash`  
+  - Methods: `select`, `map`, `compact`  
 
 ---
