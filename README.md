@@ -9,6 +9,7 @@
 6. [Debugging](#debugging)
 7. [Enumerables](#enumerables)  
 8. [Nested Collections](#nested-collections)  
+9. [Object Oriented Programming](#object-oriented-programming)  
 
 ---
 
@@ -155,3 +156,52 @@
   - Methods: `select`, `map`, `compact`  
 
 ---
+
+<h2 id="object-oriented-programming">9. Object Oriented Programming 🧩</h2>  
+
+**File:** [object_oriented_programming.rb](object_oriented_programming.rb)  
+
+- **Core Principles of OOP:**  
+  - **Encapsulation:** Bundling data with methods that operate on that data.  
+  - **Polymorphism:** Ability of different objects to respond to the same message in different ways.  
+  - **Inheritance:** Mechanism by which one class acquires the properties and behavior of another class.  
+  - **Abstraction:** Concept of showing only essential attributes and hiding unnecessary information.  
+- **Classes and Objects:**  
+  - Classes are blueprints for objects. Objects are instances of classes.  
+  - Class names follow CamelCase convention.  
+  - Defined using the `class` keyword.  
+  - The `initialize` method is a constructor for creating objects.
+- **Modules:**  
+  - Collections of methods and constants. Cannot generate instances. Used to add functionality to a class.  
+  - **Mixin:** Process of including a module in a class using `include`.  
+  - Defined using the `module` keyword.  
+  - Use `include` to add instance methods from a module to a class.  
+  - Use `extend` to add class methods from a module to a class.
+- **Instance Variables:**  
+  - Variables that belong to an object, prefixed with `@`.  
+- **Class Variables:**  
+  - Variables that belong to the class itself, prefixed with `@@`. Shared among all instances of the class.
+- **Constants:**  
+  - Variables that are meant to remain unchanged, written in all uppercase letters.
+- **Composition:**  
+  - Concept that a class can be made up of other classes.  
+- **Aggregation:**  
+  - Concept that a class can have a relationship with another class.  
+- **Instance Methods:**  
+  - Methods that belong to an object.  
+  - Use `self` to refer to the current object within an instance method.
+- **Accessor Methods:**  
+  - Methods used to read and write instance variables.  
+  - **Setter Methods:** Used to write instance variables.  
+  - **Getter Methods:** Used to read instance variables.  
+  - Use `attr_accessor` to create both getter and setter methods.  
+  - Use `attr_reader` to create getter methods only.  
+  - Use `attr_writer` to create setter methods only.
+- **Class Methods:**  
+  - Methods that belong to the class itself, defined using `self.method_name`.  
+- **Private, Protected, and Public Methods:**  
+  - **Private Methods:** Can only be called within the class, defined using `private`.  
+  - **Protected Methods:** Can be called within the class and its subclasses, defined using `protected`.  
+  - **Public Methods:** Can be called from outside the class, defined using `public`.  
+
+  ---
