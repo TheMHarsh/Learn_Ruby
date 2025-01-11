@@ -177,19 +177,17 @@
   - Defined using the `module` keyword.  
   - Use `include` to add instance methods from a module to a class.  
   - Use `extend` to add class methods from a module to a class.
-- **Instance Variables:**  
-  - Variables that belong to an object, prefixed with `@`.  
-- **Class Variables:**  
-  - Variables that belong to the class itself, prefixed with `@@`. Shared among all instances of the class.
-- **Constants:**  
-  - Variables that are meant to remain unchanged, written in all uppercase letters.
-- **Composition:**  
-  - Concept that a class can be made up of other classes.  
-- **Aggregation:**  
-  - Concept that a class can have a relationship with another class.  
+  - **Namespacing:** Organizing similar classes and modules under a module.
+  - **Container** Using modules as a collection of methods and constants.   
+- **Instance Variables:** Variables that belong to an object, prefixed with `@`.  
 - **Instance Methods:**  
   - Methods that belong to an object.  
   - Use `self` to refer to the current object within an instance method.
+- **Class Variables:** Variables that belong to the class itself, prefixed with `@@`. Shared among all instances of the class.
+- **Class Methods:** Methods that belong to the class itself, defined using `self.method_name`.  
+- **Constants:** Variables that are meant to remain unchanged, written in all uppercase letters like `NAME`.
+- **Composition:** Concept that a class can be made up of other classes.  
+- **Aggregation:** Concept that a class can have a relationship with another class.  
 - **Accessor Methods:**  
   - Methods used to read and write instance variables.  
   - **Setter Methods:** Used to write instance variables.  
@@ -197,8 +195,6 @@
   - Use `attr_accessor` to create both getter and setter methods.  
   - Use `attr_reader` to create getter methods only.  
   - Use `attr_writer` to create setter methods only.
-- **Class Methods:**  
-  - Methods that belong to the class itself, defined using `self.method_name`.  
 - **Private, Protected, and Public Methods:**  
   - **Private Methods:** Can only be called within the class, defined using `private`.  
   - **Protected Methods:** Can be called within the class and its subclasses, defined using `protected`.  
