@@ -201,3 +201,27 @@
   - **Public Methods:** Can be called from outside the class, defined using `public`.  
 
   ---
+
+  <h2 id="exception-handling">10. Exception Handling 🚨</h2>  
+
+**File:** [exception_handling.rb](exception_handling.rb)  
+
+- **Exception Handling:**  
+  - Ruby has a built-in exception handling mechanism to handle errors in your code.
+- **Begin and Rescue Block:**  
+  - Use `begin` and `rescue` to handle exceptions.
+  - `rescue` catches all exceptions unless a specific type is specified.
+- **Specifying Exception Types:**  
+  - You can specify the type of exception you want to catch.
+- **Storing the Exception Object:**  
+  - Use `rescue => e` to store the exception object in a variable.
+  - The exception object contains information about the error that occurred.
+- **Else Block:**  
+  - The `else` block runs when no exception occurs.
+- **Ensure Block:**  
+  - The `ensure` block runs regardless of whether an exception occurs or not.
+- **Raise:**  
+  - You can raise an exception using the `raise` keyword.
+  - You can also raise a specific type of exception.
+- **Retry Keyword:**  
+  - Use `retry` to retry the `begin` block from the start.
