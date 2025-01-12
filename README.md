@@ -10,6 +10,7 @@
 7. [Enumerables](#enumerables)  
 8. [Nested Collections](#nested-collections)  
 9. [Object Oriented Programming](#object-oriented-programming)  
+10. [Exception Handling](#exception-handling)
 
 ---
 
