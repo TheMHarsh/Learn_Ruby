@@ -164,32 +164,32 @@
 **File:** [object_oriented_programming.rb](object_oriented_programming.rb)  
 
 - **Core Principles of OOP:**  
-  - _Encapsulation_
-  - _Polymorphism_
-  - _Inheritance_ 
-  - _Abstraction_
+  - Encapsulation  
+  - Polymorphism  
+  - Inheritance  
+  - Abstraction  
 - **Classes and Objects:**  
-  - Defined using the `class` keyword.  
-  - The `initialize` method is a constructor for creating objects.
+  - Defined using the `class` keyword  
+  - The `initialize` method is a constructor for creating objects
 - **Modules:**  
-  - Defined using the `module` keyword.  
-  - Use `include` to add a module to a class. 
-- **Instance Variables:** 
-  - Variables that belong to an object, prefixed with `@`.  
+  - Defined using the `module` keyword  
+  - Use `include` to add a module to a class
+- **Instance Variables:**  
+  - Variables that belong to an object, prefixed with `@`
 - **Instance Methods:**  
-  - Methods that belong to an object, using `self` to refer to the object.
-- **Class Variables:** 
-  - Variables that belong to the class itself, prefixed with `@@`. 
-- **Class Methods:** 
-  - Methods that belong to the class itself, defined using `self.method_name`.  
-- **Constants:** 
-  - Written in all uppercase letters like `NAME`.
+  - Methods that belong to an object, using `self` to refer to the object
+- **Class Variables:**  
+  - Variables that belong to the class itself, prefixed with `@@`
+- **Class Methods:**  
+  - Methods that belong to the class itself, defined using `self.method_name`
+- **Constants:**  
+  - Written in all uppercase letters like `NAME`
 - **Accessor Methods:**  
-  - `attr_accessor`, `attr_reader`, `attr_writer`  
+  - `attr_accessor`, `attr_reader`, `attr_writer`
 - **Method Visibility:**  
-  - `private`, `protected`, `public`  
+  - `private`, `protected`, `public`
 
-  ---
+---
 
   <h2 id="exception-handling">10. Exception Handling 🚨</h2>  
 
