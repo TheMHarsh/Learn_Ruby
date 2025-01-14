@@ -1,7 +1,7 @@
 # Project Management
 
 # require_relative
-require_relative('lib/add.rb') # use relative path
+require_relative('lib/add') # use relative path
 Add.new(1, 2)
 
 # require
@@ -9,7 +9,7 @@ require './lib/sub' # use either the explicit relative path or the absolute path
 Sub.new(1, 2)
 # if not given the explicit relative path or the absolute path, it looks in the $LOAD_PATH
 
-action() # this will return "Sub Action" because the last definition of action is in sub.rb
+action # this will return "Sub Action" because the last definition of action is in sub.rb
 
 require 'csv' # this looks for csv.rb in $LOAD_PATH
 begin
@@ -23,20 +23,20 @@ end
 # Constants work across files
 
 # Gems - Ruby libraries
-# Gems are packages containing Ruby utility libraries that someone wrote. 
+# Gems are packages containing Ruby utility libraries that someone wrote.
 # They are installed using the gem command
 # gem install <gem_name>
 # If you use a gem, it is called a dependency
 # Gems are stored in the $GEM_HOME directory
 
 require 'colorize' # this is a gem
-puts "This is blue".colorize(:blue)
+puts 'This is blue'.colorize(:blue)
 
 # Bundler - Ruby dependency manager
 # Bundler is a tool that manages the dependencies of a Ruby project
 
 # It creates a file called Gemfile.lock that lists the exact versions of the dependencies
-# It installs the dependencies using the gem command  
+# It installs the dependencies using the gem command
 # To install bundler, run `gem install bundler`
 
 # To create a Gemfile, run `bundle init`
@@ -51,3 +51,12 @@ puts "This is blue".colorize(:blue)
 # To install the dependencies, run `bundle install`
 # To execute a Ruby file with the dependencies, run `bundle exec ruby <file_name>`
 
+# Rubocop - Ruby code analyzer and formatter
+# Rubocop is a tool that checks Ruby code for style and syntax errors
+# It also formats the code according to the Ruby style guide
+# To install Rubocop, run `gem install rubocop`
+# To run Rubocop, run `rubocop <file_name>`
+# To automatically fix the issues, run `rubocop -a <file_name>`
+# To run Rubocop on all Ruby files in a directory, run `rubocop .`
+# To run Rubocop using Bundler, run `bundle exec rubocop`
+# To create a .rubocop.yml file, run `rubocop --auto-gen-config`
