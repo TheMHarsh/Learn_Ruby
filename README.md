@@ -164,43 +164,30 @@
 **File:** [object_oriented_programming.rb](object_oriented_programming.rb)  
 
 - **Core Principles of OOP:**  
-  - **Encapsulation:** Bundling data with methods that operate on that data.  
-  - **Polymorphism:** Ability of different objects to respond to the same message in different ways.  
-  - **Inheritance:** Mechanism by which one class acquires the properties and behavior of another class.  
-  - **Abstraction:** Concept of showing only essential attributes and hiding unnecessary information.  
+  - _Encapsulation_
+  - _Polymorphism_
+  - _Inheritance_ 
+  - _Abstraction_
 - **Classes and Objects:**  
-  - Classes are blueprints for objects. Objects are instances of classes.  
-  - Class names follow CamelCase convention.  
   - Defined using the `class` keyword.  
   - The `initialize` method is a constructor for creating objects.
 - **Modules:**  
-  - Collections of methods and constants. Cannot generate instances. Used to add functionality to a class.  
-  - **Mixin:** Process of including a module in a class using `include`.  
   - Defined using the `module` keyword.  
-  - Use `include` to add instance methods from a module to a class.  
-  - Use `extend` to add class methods from a module to a class.
-  - **Namespacing:** Organizing similar classes and modules under a module.
-  - **Container** Using modules as a collection of methods and constants.   
-- **Instance Variables:** Variables that belong to an object, prefixed with `@`.  
+  - Use `include` to add a module to a class. 
+- **Instance Variables:** 
+  - Variables that belong to an object, prefixed with `@`.  
 - **Instance Methods:**  
-  - Methods that belong to an object.  
-  - Use `self` to refer to the current object within an instance method.
-- **Class Variables:** Variables that belong to the class itself, prefixed with `@@`. Shared among all instances of the class.
-- **Class Methods:** Methods that belong to the class itself, defined using `self.method_name`.  
-- **Constants:** Variables that are meant to remain unchanged, written in all uppercase letters like `NAME`.
-- **Composition:** Concept that a class can be made up of other classes.  
-- **Aggregation:** Concept that a class can have a relationship with another class.  
+  - Methods that belong to an object, using `self` to refer to the object.
+- **Class Variables:** 
+  - Variables that belong to the class itself, prefixed with `@@`. 
+- **Class Methods:** 
+  - Methods that belong to the class itself, defined using `self.method_name`.  
+- **Constants:** 
+  - Written in all uppercase letters like `NAME`.
 - **Accessor Methods:**  
-  - Methods used to read and write instance variables.  
-  - **Setter Methods:** Used to write instance variables.  
-  - **Getter Methods:** Used to read instance variables.  
-  - Use `attr_accessor` to create both getter and setter methods.  
-  - Use `attr_reader` to create getter methods only.  
-  - Use `attr_writer` to create setter methods only.
-- **Private, Protected, and Public Methods:**  
-  - **Private Methods:** Can only be called within the class, defined using `private`.  
-  - **Protected Methods:** Can be called within the class and its subclasses, defined using `protected`.  
-  - **Public Methods:** Can be called from outside the class, defined using `public`.  
+  - `attr_accessor`, `attr_reader`, `attr_writer`  
+- **Method Visibility:**  
+  - `private`, `protected`, `public`  
 
   ---
 
@@ -209,24 +196,13 @@
 **File:** [exception_handling.rb](exception_handling.rb)  
 
 - **Exception Handling:**  
-  - Ruby has a built-in exception handling mechanism to handle errors in your code.
-- **Begin and Rescue Block:**  
-  - Use `begin` and `rescue` to handle exceptions.
-  - `rescue` catches all exceptions unless a specific type is specified.
-- **Specifying Exception Types:**  
-  - You can specify the type of exception you want to catch.
-- **Storing the Exception Object:**  
-  - Use `rescue => e` to store the exception object in a variable.
-  - The exception object contains information about the error that occurred.
-- **Else Block:**  
-  - The `else` block runs when no exception occurs.
-- **Ensure Block:**  
-  - The `ensure` block runs regardless of whether an exception occurs or not.
-- **Raise:**  
-  - You can raise an exception using the `raise` keyword.
-  - You can also raise a specific type of exception.
-- **Retry Keyword:**  
-  - Use `retry` to retry the `begin` block from the start.
+  - `begin` and `rescue`  
+  - Specifying exception types  
+  - Storing the exception object  
+  - `else` block  
+  - `ensure` block  
+  - `raise` keyword  
+  - `retry` keyword  
 
 ---
 
@@ -235,38 +211,21 @@
 **File:** [project_management.rb](project_management.rb)  
 
 - **Require and Require_relative:**  
-  - Use `require` to load external libraries or files.
-  - Use `require_relative` to load files relative to the file containing the `require_relative` statement.
-  - Convention is to use `require_relative` for files in the same project and `require` for external libraries.
+  - `require` and `require_relative`  
 - **$LOAD_PATH:**  
-  - Ruby searches for files to load in the directories listed in `$LOAD_PATH`.
+  - Search path for files  
 - **LoadError:**  
-  - Raised when a file required by `require` or `require_relative` cannot be found.
-- **Local Variables:**  
-  - Local variables do not work across files.
-- **Constants:**  
-  - Constants work across files.
+  - Raised when a file cannot be found  
+- **Local Variables and Constants:**  
+  - Local variables do not work across files  
+  - Constants work across files  
 - **Gems:**  
-  - Gems are packaged Ruby applications or libraries.
-  - Use `gem install gem_name` to install a gem.
-  - Use `require 'gem_name'` to use the gem in your code.
+  - Packaged Ruby applications or libraries  
 - **Bundler:**  
-  - Bundler is a tool to manage gem dependencies for your Ruby applications.
-  - Use `bundle init` to create a `Gemfile`.
-  - Use `bundle install` to install the gems specified in the `Gemfile`.
-  - Use `bundle exec` to run commands in the context of the bundle.
+  - Manages gem dependencies  
 - **Gemfile:**  
-  - A `Gemfile` is a file that specifies the gems required for your application.
-  - Example:
-    ```ruby
-    source 'https://rubygems.org'
-    gem 'rails'
-    gem 'pg'
-    ```
+  - Specifies required gems  
 - **RuboCop:**  
-  - RuboCop is a Ruby static code analyzer and formatter.
-  - Use `gem install rubocop` to install RuboCop.
-  - Use `rubocop` to run RuboCop on your code.
-  - Use `.rubocop.yml` to configure RuboCop for your project.
+  - Static code analyzer and formatter  
 
 ---
