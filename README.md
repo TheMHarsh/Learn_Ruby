@@ -11,6 +11,7 @@
 8. [Nested Collections](#nested-collections)  
 9. [Object Oriented Programming](#object-oriented-programming)  
 10. [Exception Handling](#exception-handling)
+11. [Project Management](#project-management)
 
 ---
 
@@ -226,3 +227,46 @@
   - You can also raise a specific type of exception.
 - **Retry Keyword:**  
   - Use `retry` to retry the `begin` block from the start.
+
+---
+
+<h2 id="project-management">11. Project Management 📦</h2>
+
+**File:** [project_management.rb](project_management.rb)  
+
+- **Require and Require_relative:**  
+  - Use `require` to load external libraries or files.
+  - Use `require_relative` to load files relative to the file containing the `require_relative` statement.
+  - Convention is to use `require_relative` for files in the same project and `require` for external libraries.
+- **$LOAD_PATH:**  
+  - Ruby searches for files to load in the directories listed in `$LOAD_PATH`.
+- **LoadError:**  
+  - Raised when a file required by `require` or `require_relative` cannot be found.
+- **Local Variables:**  
+  - Local variables do not work across files.
+- **Constants:**  
+  - Constants work across files.
+- **Gems:**  
+  - Gems are packaged Ruby applications or libraries.
+  - Use `gem install gem_name` to install a gem.
+  - Use `require 'gem_name'` to use the gem in your code.
+- **Bundler:**  
+  - Bundler is a tool to manage gem dependencies for your Ruby applications.
+  - Use `bundle init` to create a `Gemfile`.
+  - Use `bundle install` to install the gems specified in the `Gemfile`.
+  - Use `bundle exec` to run commands in the context of the bundle.
+- **Gemfile:**  
+  - A `Gemfile` is a file that specifies the gems required for your application.
+  - Example:
+    ```ruby
+    source 'https://rubygems.org'
+    gem 'rails'
+    gem 'pg'
+    ```
+- **RuboCop:**  
+  - RuboCop is a Ruby static code analyzer and formatter.
+  - Use `gem install rubocop` to install RuboCop.
+  - Use `rubocop` to run RuboCop on your code.
+  - Use `.rubocop.yml` to configure RuboCop for your project.
+
+---
