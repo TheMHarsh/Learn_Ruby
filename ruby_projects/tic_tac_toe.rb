@@ -52,19 +52,9 @@ class Grid
   end
   
   def diagonal_check(mover)
-    flag = false
-    i = 0
-    diag1 = grid.each_with_object([]) do |element, array| 
-      array.push(element[i])
-      i += 1
-    end
-    j = 2
-    diag2 = grid.each_with_object([]) do |element, array| 
-      array.push(element[j])
-      j -= 1
-    end
-    flag = true if diag1 == [mover, mover, mover] || diag2 == [mover, mover, mover]
-    flag
+    diag1 = (0..2).map { |i| grid[i][i] }
+    diag2 = (0..2).map { |i| grid[i][2 - i] }
+    [diag1, diag2].any? { |diag| diag == [mover, mover, mover] }
   end
 end
 
