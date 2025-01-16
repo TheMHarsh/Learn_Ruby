@@ -1,3 +1,4 @@
+require 'colorize'
 class Grid
   attr_accessor :grid
 
@@ -8,7 +9,10 @@ class Grid
   def display
     grid.each_with_index do |row, i|
       row.each_with_index do |cell, j|
-        print "#{cell} " 
+        color = :white
+        color = cell == 'X' ? :magenta : color
+        color = cell == 'O' ? :cyan : color
+        print "#{cell} ".colorize(color) 
         print '| ' if j != 2
       end
       puts
@@ -18,31 +22,36 @@ class Grid
   end
 
   def move(mover)
-    print "Enter which place do you want to change : "
-    move_location = gets.to_i
-    puts
-    unless move_location.between?(1, 9)
-      puts "Make a valid selection."
+    move_location = move_input
+    row = ((move_location - 1) / 3)
+    col = ((move_location - 1) % 3)
+    if ['X', 'O'].include?(grid[row][col]) 
+      puts "Can't move there, please make a correct move this time.\n".colorize(:red)
       return move(mover)
     end
-    i = ((move_location - 1) / 3)
-    j = ((move_location - 1) % 3)
-    if ['X', 'O'].include?(grid[i][j]) 
-      puts "Can't move there, please make a correct move this time."
-      return move(mover)
-    end
-    grid[i][j] = mover
+    grid[row][col] = mover
   end
 
   def check_win(mover)
     return unless row_checker(mover) || diagonal_check(mover)
     
     display
-    puts "#{mover} won the game" 
+    puts "#{mover} won the game".colorize(:green) 
     true
   end
 
   private
+  
+  def move_input
+    print "Enter which place do you want to change : "
+    move_location = gets.to_i
+    puts
+    unless move_location.between?(1, 9)
+      puts "Make a valid selection.\n".colorize(:red)
+      return move_input
+    end
+    move_location
+  end
   
   def row_checker(mover)
     flag = false
@@ -58,24 +67,28 @@ class Grid
   end
 end
 
-def tic_tac_toe
-  grid = Grid.new
-  count = 0
-  player = 'X'
-  while count < 9
-    puts "#{player}'s chance ->\n\n"
-    grid.display
-    grid.move(player)
-    count += 1
-    break if grid.check_win(player)
+module TicTacToe
+  def self.gameplay(grid)
+    no_win = true
+    (0...9).each do |i| 
+      player = ['X', 'O'][i % 2]
+      puts "#{player}'s chance ->\n".colorize(:yellow)
+      grid.display
+      grid.move(player)
+      return no_win = false if grid.check_win(player)
+    end
+    no_win
+  end
 
-    player = player == 'X' ? 'O' : 'X'
+  def self.start
+    grid = Grid.new
+    no_win = gameplay(grid)
+    if no_win 
+      grid.display
+      puts "Nobody Won!"
+    end
+    puts 'Game Over, Go Home!'
   end
-  if count == 9 
-    grid.display
-    puts "Nobody Won!" 
-  end
-  puts 'Game Over, Go Home!'
 end
 
-tic_tac_toe
+TicTacToe.start
