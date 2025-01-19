@@ -185,6 +185,7 @@ module Mastermind
       Code.display(trial_code)
       clues = secret_code.compare(trial_code)
       clue_display(clues)
+      sleep(1)
       break if check_win(clues)
 
       puts "\n#{TURNS} turns completed, You Lost".colorize(:red) if turn == TURNS - 1
