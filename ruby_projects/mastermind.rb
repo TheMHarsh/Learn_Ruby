@@ -68,9 +68,10 @@ module Mastermind
   include Config
   def self.start
     instructions
-    secret_code = Code.new(random_code_generate)
-    # secret_code = Code.new("1234") # for testing
-    human_gameplay(secret_code)
+    choice = side_chooser
+    secret_code = choice == 1 ? Code.new(random_code_generate) : Code.new(secret_code_input)
+    human_gameplay(secret_code) if choice == 1
+    computer_gameplay(secret_code) if choice == 2
     reveal(secret_code)
   end
 
@@ -109,7 +110,7 @@ module Mastermind
   def self.instructions
     print "The following numbers are associated with the respective colours -> "
     Code.display("123456")
-    puts
+    puts "\n\nThe game will be played for #{TURNS} turns\n\n"
   end
 
   def self.reveal(secret_code)
@@ -124,9 +125,68 @@ module Mastermind
       trial_code = input_guess
       Code.display(trial_code)
       clues = secret_code.compare(trial_code)
+      clue_display(clues)
       break if check_win(clues)
 
+      puts "\n#{TURNS} turns completed, You Lost".colorize(:red) if turn == TURNS - 1
+    end
+  end
+
+  def self.side_chooser
+    print "Who will be the codemaker? (1) Computer (2) Human : "
+    choice = gets.chomp.to_i
+    return side_chooser unless [1, 2].include?(choice)
+
+    choice
+  end
+
+  def self.secret_code_input
+    print "Enter the secret code as a sequence of four numbers of the desired colours (ex. 1234) : "
+    trial_code = gets.chomp
+    puts
+    return trial_code if validate_input(trial_code)
+    
+    secret_code_input
+  end
+
+  @@array = [1, 2, 3, 4, 5, 6]
+  def self.computer_gameplay(secret_code)
+    clues = [0, 0]
+    trial_code_arr = [0, 0, 0, 0]
+    all_fit = false
+    permutation = []
+    TURNS.times do |turn|
+      puts "\nTurn ##{turn + 1} -> ".colorize(:yellow)
+      # trial code here
+      index = clues[0] + clues[1]
+      if index < CODE_LENGTH
+        random_number = @@array[rand(@@array.length)]
+        @@array.delete(random_number)
+        (index...CODE_LENGTH).each do |i|
+          trial_code_arr[i] = random_number
+        end
+      else
+        if all_fit == false
+          permutation = trial_code_arr.permutation.to_a
+          all_fit = true
+        end
+        possible_sol = Code.new(trial_code_arr.join)
+        temp_arr = []
+        permutation.each do |perm|
+          temp_arr.push(perm) if possible_sol.compare(perm.join) == clues
+        end
+        permutation = temp_arr
+
+        trial_code_arr = permutation[rand(permutation.length)]
+      end
+
+      # displays 
+      trial_code = trial_code_arr.join
+      Code.display(trial_code)
+      clues = secret_code.compare(trial_code)
       clue_display(clues)
+      break if check_win(clues)
+
       puts "\n#{TURNS} turns completed, You Lost".colorize(:red) if turn == TURNS - 1
     end
   end
