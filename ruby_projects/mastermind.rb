@@ -99,9 +99,9 @@ module Mastermind
     print "Clues -> #{"\* ".colorize(:magenta) * clues[0]}#{"\* ".colorize(:cyan) * clues[1]}\n"
   end
 
-  def self.check_win(clues)
+  def self.check_win(clues, player)
     if clues[0] == 4
-      puts "\n\nCongrats, You Won!".colorize(:green)
+      puts "\n#{'Congrats, ' if player == 'Human'}#{player} Won!".colorize(:green)
       return true
     end
     false
@@ -123,12 +123,7 @@ module Mastermind
     TURNS.times do |turn|
       puts "\nTurn ##{turn + 1} -> ".colorize(:yellow)
       trial_code = input_guess
-      Code.display(trial_code)
-      clues = secret_code.compare(trial_code)
-      clue_display(clues)
-      break if check_win(clues)
-
-      puts "\n#{TURNS} turns completed, You Lost".colorize(:red) if turn == TURNS - 1
+      break if display_clue_comparison(trial_code, secret_code, 'Human', turn)
     end
   end
 
@@ -148,48 +143,55 @@ module Mastermind
     
     secret_code_input
   end
-
-  @@array = [1, 2, 3, 4, 5, 6]
+ 
   def self.computer_gameplay(secret_code)
+    array = Array.new(6) { |i| i + 1 }
     clues = [0, 0]
-    trial_code_arr = [0, 0, 0, 0]
+    trial_code_arr = Array.new(CODE_LENGTH, 0)
     all_fit = false
     permutation = []
     TURNS.times do |turn|
       puts "\nTurn ##{turn + 1} -> ".colorize(:yellow)
-      # trial code here
       index = clues[0] + clues[1]
       if index < CODE_LENGTH
-        random_number = @@array[rand(@@array.length)]
-        @@array.delete(random_number)
-        (index...CODE_LENGTH).each do |i|
-          trial_code_arr[i] = random_number
-        end
+        trial_code_arr = generate_trial_code(trial_code_arr, array, index)
       else
-        if all_fit == false
-          permutation = trial_code_arr.permutation.to_a
-          all_fit = true
-        end
-        possible_sol = Code.new(trial_code_arr.join)
-        temp_arr = []
-        permutation.each do |perm|
-          temp_arr.push(perm) if possible_sol.compare(perm.join) == clues
-        end
-        permutation = temp_arr
-
-        trial_code_arr = permutation[rand(permutation.length)]
+        permutation, trial_code_arr = handle_permutations(permutation, trial_code_arr, clues, all_fit)
+        all_fit = true     
       end
 
-      # displays 
       trial_code = trial_code_arr.join
-      Code.display(trial_code)
-      clues = secret_code.compare(trial_code)
-      clue_display(clues)
-      sleep(1)
-      break if check_win(clues)
+      break if display_clue_comparison(trial_code, secret_code, 'Computer', turn)
 
-      puts "\n#{TURNS} turns completed, You Lost".colorize(:red) if turn == TURNS - 1
+      clues = secret_code.compare(trial_code)
     end
+  end
+
+  def self.generate_trial_code(trial_code_arr, array, index)
+    random_number = array.sample
+    array.delete(random_number)
+    (index...CODE_LENGTH).each do |i|
+      trial_code_arr[i] = random_number
+    end
+    trial_code_arr
+  end
+
+  def self.handle_permutations(permutation, trial_code_arr, clues, all_fit)
+    permutation = trial_code_arr.permutation.to_a if all_fit == false
+    possible_sol = Code.new(trial_code_arr.join)
+    temp_arr = permutation.select { |perm| possible_sol.compare(perm.join) == clues }
+    trial_code_arr = temp_arr.sample
+    [temp_arr, trial_code_arr]
+  end
+
+  def self.display_clue_comparison(trial_code, secret_code, player, turn)
+    Code.display(trial_code)
+    clues = secret_code.compare(trial_code)
+    clue_display(clues)
+    sleep(1) if player == 'Computer'
+    return true if check_win(clues, player)
+
+    puts "\n#{TURNS} turns completed, #{player} Lost".colorize(:red) if turn == TURNS - 1
   end
 end
 
