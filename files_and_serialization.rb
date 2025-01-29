@@ -16,7 +16,7 @@ end
 
 # I/O Objects
 io = IO.new(1) # 1 is the file descriptor for stdout
-# File descriptor is a number that represents an open file in the operating system
+# File descriptor is a number that represents an open  file in the operating system
 # 0 is stdin, 1 is stdout, 2 is stderr
 
 io.puts "io used" # This is the same as puts "Hello, world!"
@@ -41,3 +41,11 @@ lorem.puts 'hello how are you'
 lorem.rewind # moves the file pointer to the beginning of the file
 p lorem.pos 
 p lorem.gets
+
+p lorem.read # reads the entire file
+
+# Sub-Classes and Duck-types
+# File class is a subclass of IO class
+
+p File.absolute_path('lorem.txt')
+p File.size('lorem.txt')
