@@ -1,0 +1,12 @@
+name: "Harsh"
+age: 20
+city: "Delhi"
+friends:
+  sarthak:
+    name: "Sarthak"
+    age: 20
+    city: "Indore"
+  ashish:
+    name: "Ashish"
+    age: 21
+    city: "Delhi"
