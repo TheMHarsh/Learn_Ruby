@@ -128,3 +128,26 @@ p json
 
 animal2 = Animal.from_json(json)
 p animal2
+
+# Message Pack
+# MessagePack is a binary serialization format
+# It is faster and more compact than JSON
+
+require 'msgpack'
+
+msg = MessagePack.pack({name: 'Harsh', age: 20})
+
+p msg
+
+obj = MessagePack.unpack(msg)
+p obj
+
+# Marshal
+# Marshal is a serialization format that is specific to Ruby
+
+msg = Marshal.dump({name: 'Harsh', age: 20})
+
+p msg
+
+obj = Marshal.load(msg)
+p obj
