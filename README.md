@@ -12,6 +12,7 @@
 9. [Object Oriented Programming](#object-oriented-programming)  
 10. [Exception Handling](#exception-handling)
 11. [Project Management](#project-management)
+12. [Files and Serialization](#files-and-serialization)
 
 ---
 
@@ -227,5 +228,23 @@
   - Specifies required gems  
 - **RuboCop:**  
   - Static code analyzer and formatter  
+
+---
+
+<h2 id="files-and-serialization">12. Files and Serialization 📂</h2>  
+
+**File:** [files_and_serialization.rb](files_and_serialization.rb)  
+
+- **File Operations:**  
+  - `IO.sysopen` and `IO.new`  
+  - Reading and writing files  
+  - File pointer operations: `pos`, `eof?`, `rewind`, `read`
+- **Serialization:**  
+  - **MessagePack:**  
+    - `MessagePack.pack` and `MessagePack.unpack`  
+  - **Marshal:**  
+    - `Marshal.dump` and `Marshal.load`
+- **Sub-Classes:**  
+  - `File` class is a subclass of `IO` class
 
 ---
