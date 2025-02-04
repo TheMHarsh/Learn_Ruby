@@ -1,6 +1,10 @@
 require 'csv'
 puts 'Event Manager Initialized!'
 
+def clean_zipcode(zipcode)
+  zipcode.to_s.rjust(5, '0')[0..4]
+end
+
 if File.exist? 'ruby_projects/files/event_attendees.csv'
   contents = CSV.read('ruby_projects/files/event_attendees.csv', headers: true, header_converters: :symbol)
   contents.each do |row|
@@ -13,16 +17,9 @@ end
 
 # Cleaning Up the zip codes
 contents.each do |row|
-  if row[:zipcode].nil?
-    zipcode = '00000'
-  elsif row[:zipcode].length < 5
-    zipcode = row[:zipcode].rjust(5, '0')
-  elsif row[:zipcode].length > 5
-    zipcode = row[:zipcode][0..4]
-  else
-    zipcode = row[:zipcode]
-  end
-  puts zipcode
+  name = row[:first_name]
+  zipcode = clean_zipcode(row[:zipcode])
+  puts "#{name} #{zipcode}"
 end
 
 
