@@ -22,4 +22,12 @@ contents.each do |row|
   puts "#{name} #{zipcode}"
 end
 
+# Using Google's Civic Information API
 
+require 'google/apis/civicinfo_v2'
+
+civic_info = Google::Apis::CivicinfoV2::CivicInfoService.new
+civic_info.key = 'AIzaSyClRzDqDh5MsXwnCWi0kOiiBivP6JsSyBw'
+response = civic_info.representative_info_by_address(address: 80202, levels: 'country', roles: ['legislatorUpperBody', 'legislatorLowerBody'])
+
+puts response
